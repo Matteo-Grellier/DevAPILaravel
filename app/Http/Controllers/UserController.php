@@ -28,14 +28,12 @@ class UserController extends Controller
     function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
             'email' => 'required',
             'password' => 'required'
         ]);
 
         $user = new User;
 
-        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
 
@@ -47,14 +45,12 @@ class UserController extends Controller
     function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
             'email' => 'required',
             'password' => 'required'
         ]);
 
         $user = User::find($id);
 
-        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
 
